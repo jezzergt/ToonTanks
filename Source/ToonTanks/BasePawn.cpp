@@ -2,6 +2,7 @@
 
 
 #include "BasePawn.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -9,6 +10,8 @@ ABasePawn::ABasePawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	capsule_comp_ = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
+	RootComponent = capsule_comp_;
 }
 
 // Called when the game starts or when spawned
