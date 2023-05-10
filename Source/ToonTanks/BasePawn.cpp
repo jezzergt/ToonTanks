@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
 
@@ -12,6 +11,15 @@ ABasePawn::ABasePawn()
 
 	capsule_comp_ = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
 	RootComponent = capsule_comp_;
+
+	base_mesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
+	base_mesh_->SetupAttachment(capsule_comp_);
+
+	turrent_mesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
+	turrent_mesh_->SetupAttachment(base_mesh_);
+
+	projectile_spawn_point_ = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
+	projectile_spawn_point_->SetupAttachment(turrent_mesh_);
 }
 
 // Called when the game starts or when spawned
