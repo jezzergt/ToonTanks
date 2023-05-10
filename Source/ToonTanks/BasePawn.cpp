@@ -9,17 +9,17 @@ ABasePawn::ABasePawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	capsule_comp_ = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
-	RootComponent = capsule_comp_;
+	m_CapsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
+	RootComponent = m_CapsuleComp;
 
-	base_mesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
-	base_mesh_->SetupAttachment(capsule_comp_);
+	m_BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
+	m_BaseMesh->SetupAttachment(m_CapsuleComp);
 
-	turrent_mesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
-	turrent_mesh_->SetupAttachment(base_mesh_);
+	m_TurretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
+	m_TurretMesh->SetupAttachment(m_BaseMesh);
 
-	projectile_spawn_point_ = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
-	projectile_spawn_point_->SetupAttachment(turrent_mesh_);
+	m_ProjectileSpawn = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
+	m_ProjectileSpawn->SetupAttachment(m_TurretMesh);
 }
 
 // Called when the game starts or when spawned

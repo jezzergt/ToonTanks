@@ -15,22 +15,24 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
+	int MyInt = 6;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 private:
 	UPROPERTY()
-	class UCapsuleComponent* capsule_comp_;
+	class UCapsuleComponent* m_CapsuleComp;
 
 	UPROPERTY()
-	UStaticMeshComponent* base_mesh_;
+	UStaticMeshComponent* m_BaseMesh;
 
 	UPROPERTY()
-	UStaticMeshComponent* turrent_mesh_;
+	UStaticMeshComponent* m_TurretMesh;
 
 	UPROPERTY()
-	USceneComponent* projectile_spawn_point_;
+	USceneComponent* m_ProjectileSpawn;
 
 public:	
 	// Called every frame
@@ -38,5 +40,4 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 };

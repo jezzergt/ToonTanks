@@ -6,7 +6,9 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/BP_ComponentsActor.uasset",
-				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Maps/Main.umap"
+				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Maps/Main.umap",
+				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/Pawns/BP_PawnTank.uasset",
+				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/Pawns/BP_PawnTurret.uasset"
 			]
 		}
 	]
