@@ -15,24 +15,25 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-	int MyInt = 6;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 private:
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly ,Category="Custom Components", meta = (AllowPrivateAccess = "true"))
 	class UCapsuleComponent* m_CapsuleComp;
 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly ,Category="Custom Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* m_BaseMesh;
 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly ,Category="Custom Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* m_TurretMesh;
 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly ,Category="Custom Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* m_ProjectileSpawn;
+
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	int MyInt = 6;
 
 public:	
 	// Called every frame
