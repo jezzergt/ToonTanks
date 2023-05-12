@@ -1,9 +1,9 @@
 # ToonTanks
 
-This is a project I'm building to follow along with the following Udemy Course:
+This is a project I'm building to follow along with this Udemy Course:
 https://www.udemy.com/course/unrealcourse/
 
-In this section of the course I'm hoping to learn more about the following:
+In this section of the course I'm going to learn more about:
 
 - Input handling.
 - Creating an enemy class.
