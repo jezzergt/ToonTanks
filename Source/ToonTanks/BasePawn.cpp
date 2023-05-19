@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BasePawn.h"
+#include "Projectile.h"
 #include "Components/CapsuleComponent.h"
 #include "kismet/GameplayStatics.h"
 
@@ -38,15 +39,9 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 
 void ABasePawn::Fire()
 {
-	FVector ProjectileSpawnPointLocation = m_ProjectileSpawn->GetComponentLocation();
+	FVector Location = m_ProjectileSpawn->GetComponentLocation();
+	FRotator Rotation = m_ProjectileSpawn->GetComponentRotation();
 
-	DrawDebugSphere(
-		GetWorld(), 
-		ProjectileSpawnPointLocation,
-		20,
-		12,
-		FColor::Red,
-		false,
-		3.f);
+	GetWorld()->SpawnActor<AProjectile>(m_ProjectileClass, Location, Rotation);
 }
 
