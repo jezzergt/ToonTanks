@@ -25,4 +25,10 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category="Projectile")
 	float m_FireRange = 300.f;
+
+	FTimerHandle m_FireRateTimerHandle;
+	float m_FireRate = 2.f;
+	void CheckFireCondition();
+
+	bool InFireRange();
 };
