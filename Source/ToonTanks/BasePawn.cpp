@@ -36,3 +36,17 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 		);
 }
 
+void ABasePawn::Fire()
+{
+	FVector ProjectileSpawnPointLocation = m_ProjectileSpawn->GetComponentLocation();
+
+	DrawDebugSphere(
+		GetWorld(), 
+		ProjectileSpawnPointLocation,
+		20,
+		12,
+		FColor::Red,
+		false,
+		3.f);
+}
+
