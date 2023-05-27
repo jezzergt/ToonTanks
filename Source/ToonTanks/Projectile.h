@@ -33,6 +33,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float m_Damage = 50.f;
 
+	UPROPERTY(EditAnywhere, Category="Combat")
+	class UParticleSystem* m_HitParticle;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
