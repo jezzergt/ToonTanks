@@ -23,6 +23,8 @@ public:
 
 	void HandleDestruction();
 
+	bool bAlive = true;
+
 	APlayerController* GetTankPlayerController() const { return m_TankPlayerController; }
 
 protected:
