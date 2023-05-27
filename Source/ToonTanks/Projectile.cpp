@@ -88,6 +88,11 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 				GetActorLocation()
 			);
 		}
+
+		if (m_HitCameraShakeClass)
+		{
+			GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(m_HitCameraShakeClass);
+		}
 	}
 	Destroy();
 }

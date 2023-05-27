@@ -14,6 +14,8 @@
 				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/PlayerControllers/BP_ToonTanksPlayerController.uasset",
 				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/Widgets/WBP_StartGameWidget.uasset",
 				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/Widgets/WBP_EndGameWidget.uasset",
+				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/CameraShake/BP_HitCameraShake.uasset",
+				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/CameraShake/BP_DeathCameraShake.uasset",
 				"C:/Dev/Game/Unreal Engine/5.1/ToonTanks/Content/Blueprints/BP_Projectile.uasset"
 			]
 		}
