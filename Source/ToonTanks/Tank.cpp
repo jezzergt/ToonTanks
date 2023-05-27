@@ -29,17 +29,17 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
-	m_PlayerControllerRef = Cast<APlayerController>(GetController());
+	m_TankPlayerController = Cast<APlayerController>(GetController());
 }
 
 void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (m_PlayerControllerRef)
+	if (m_TankPlayerController)
 	{
 		FHitResult HitResult;
-		m_PlayerControllerRef->GetHitResultUnderCursor(
+		m_TankPlayerController->GetHitResultUnderCursor(
 			ECollisionChannel::ECC_Visibility, 
 			false, 
 			HitResult
@@ -56,6 +56,13 @@ void ATank::Tick(float DeltaTime)
 
 		RotateTurret(HitResult.ImpactPoint);
 	}
+}
+
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
 }
 
 void ATank::Move(float Value)
