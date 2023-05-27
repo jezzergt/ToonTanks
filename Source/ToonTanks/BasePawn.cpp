@@ -25,7 +25,14 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::HandleDestruction()
 {
-	// TODO: sound effects
+	if (m_DeathSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(
+			this,
+			m_DeathSound,
+			GetActorLocation()
+		);
+	}
 
 	if (m_DeathParticle)
 	{
