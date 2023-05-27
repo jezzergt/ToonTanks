@@ -26,7 +26,31 @@ void AToonTanksGameMode::ActorDied(AActor* DeadActor)
 void AToonTanksGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	HandleGameStart();
+}
 
+void AToonTanksGameMode::HandleGameStart()
+{
 	m_Tank = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
 	m_ToonTanksPlayerController = Cast<AToonTanksPlayerController>(UGameplayStatics::GetPlayerController(this, 0));
+
+	if (m_ToonTanksPlayerController)
+	{
+		m_ToonTanksPlayerController->SetPlayerEnabledState(false);
+
+		FTimerHandle PlayerEnableTimerHandle;
+		
+		FTimerDelegate PlayerEnableTimerDelegate = FTimerDelegate::CreateUObject(
+			m_ToonTanksPlayerController,
+			&AToonTanksPlayerController::SetPlayerEnabledState,
+			true
+		);
+
+		GetWorldTimerManager().SetTimer(
+			PlayerEnableTimerHandle,
+			PlayerEnableTimerDelegate,
+			m_StartDelay,
+			false
+		);
+	}
 }
