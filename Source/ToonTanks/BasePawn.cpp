@@ -4,6 +4,7 @@
 #include "Projectile.h"
 #include "Components/CapsuleComponent.h"
 #include "kismet/GameplayStatics.h"
+#include "Particles/ParticleSystem.h"
 
 ABasePawn::ABasePawn()
 {
@@ -24,7 +25,17 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::HandleDestruction()
 {
-	// TODO: Visual/sound effects
+	// TODO: sound effects
+
+	if (m_DeathParticle)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(
+			this,
+			m_DeathParticle,
+			GetActorLocation(),
+			GetActorRotation()
+		);
+	}
 }
 
 void ABasePawn::RotateTurret(FVector LookAtTarget)
